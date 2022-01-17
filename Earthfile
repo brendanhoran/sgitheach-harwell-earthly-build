@@ -13,6 +13,7 @@ FROM debian:stable-slim
 # Can be overridden on the CLI
 ARG UPSTREAM_VERSION = 1.2.1
 
+
 # Update apt and install build time dependences
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
@@ -132,8 +133,8 @@ bossa:
     SAVE ARTIFACT "bossa/bin/bossac" AS LOCAL artifacts/utils/
 
 all-firmware:
-    # # Build all the firmware for harwell
-    
+    ## Build all the firmware for harwell
+
     FROM +bootloader
     FROM +dekatron
     FROM +sam
