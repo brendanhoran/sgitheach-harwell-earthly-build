@@ -16,7 +16,7 @@ ARG UPSTREAM_VERSION = 1.2.1
 # Update apt and install build time dependences
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
-    unzip make avr-libc gcc-avr gcc-arm-none-eabi
+    unzip git g++ make avr-libc gcc-avr gcc-arm-none-eabi
 
 
 dekatron:
@@ -27,6 +27,7 @@ dekatron:
 
     RUN mkdir dekatron
     COPY "Dekatron.$UPSTREAM_VERSION Final.zip" dekatron
+
     # echo 0 is needed as zip is badly formed from Dropbox
     # REF:
     # https://unix.stackexchange.com/questions/634315/unzip-thinks-my-zip-file-is-a-zip-bomb
@@ -60,6 +61,7 @@ bootloader:
 
     RUN mkdir bootloader
     COPY "Bootloader $UPSTREAM_VERSION Final.zip" bootloader
+
     # echo 0 is needed as zip is badly formed from Dropbox
     # REF:
     # https://unix.stackexchange.com/questions/634315/unzip-thinks-my-zip-file-is-a-zip-bomb
@@ -121,8 +123,17 @@ sam:
     SAVE ARTIFACT "sam/Sgitheach.$UPSTREAM_VERSION.map" AS LOCAL artifacts/sam/
     SAVE ARTIFACT "sam/Sgitheach.$UPSTREAM_VERSION.srec" AS LOCAL artifacts/sam/
 
+bossa:
+    ## Build the BOSSA CLI applictions for Linux
+
+    RUN git clone https://github.com/shumatech/BOSSA.git bossa
+    RUN cd bossa && make bossac
+
+    SAVE ARTIFACT "bossa/bin/bossac" AS LOCAL artifacts/utils/
+
 all-firmware:
-    # Build all the firmware for harwell
+    # # Build all the firmware for harwell
+    
     FROM +bootloader
     FROM +dekatron
     FROM +sam
