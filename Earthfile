@@ -46,7 +46,8 @@ dekatron:
     SAVE ARTIFACT "dekatron/Dekatron.$UPSTREAM_VERSION.cproj" AS LOCAL artifacts/dekatron/
     SAVE ARTIFACT "dekatron/Dekatron.$UPSTREAM_VERSION.eep" AS LOCAL artifacts/dekatron/
     SAVE ARTIFACT "dekatron/Dekatron.$UPSTREAM_VERSION.elf" AS LOCAL artifacts/dekatron/
-    SAVE ARTIFACT "dekatron/Dekatron.$UPSTREAM_VERSION.hex" AS LOCAL artifacts/dekatron/
+    # Rename the hex file into Dos 8.3 comptabile filenames for flashing from the bootloader
+    SAVE ARTIFACT "dekatron/Dekatron.$UPSTREAM_VERSION.hex" AS LOCAL artifacts/dekatron/dekatron.hex
     SAVE ARTIFACT "dekatron/Dekatron.$UPSTREAM_VERSION.lss" AS LOCAL artifacts/dekatron/
     SAVE ARTIFACT "dekatron/Dekatron.$UPSTREAM_VERSION.map" AS LOCAL artifacts/dekatron/
     SAVE ARTIFACT "dekatron/Dekatron.$UPSTREAM_VERSION.srec" AS LOCAL artifacts/dekatron/
