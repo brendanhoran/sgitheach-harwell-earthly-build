@@ -21,6 +21,7 @@ Ensure Earthy and Docker are working before proceeding.
 
 #### Obtain upstream source
 Download the zip files from [Upstream](https://www.dropbox.com/sh/vbxwpxwj4dzgiuu/AAAJOA2jXWSSztL8QWtX_jF5a/Firmware?dl=0&subfolder_nav_tracking=1) and place them into the directory where this README.md is located.  
+*NOTE* There is no need to extract the zip files.   
 
 #### Building the Firmware
 **NOTE**    
