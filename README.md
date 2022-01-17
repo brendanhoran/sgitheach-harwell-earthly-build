@@ -2,7 +2,7 @@
 
 ## Overview
 The [Sgitheach Harwell dekatron](http://www.sgitheach.org.uk/harwell.html) clock is an open source dekatron clock.   
-The source code is distributed via [Dropbox](https://www.dropbox.com/sh/vbxwpxwj4dzgiuu/AAAJOA2jXWSSztL8QWtX_jF5a/Firmware?dl=0&subfolder_nav_tracking=1) under a Creative Commons ShareAlike 4.0 International license.   
+The source code is distributed via [Dropbox](https://www.dropbox.com/sh/vbxwpxwj4dzgiuu/AAAJOA2jXWSSztL8QWtX_jF5a/Firmware?dl=0&subfolder_nav_tracking=1) under a [Creative Commons ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).   
 
 ### Build system
 This build frame work makes use of [Earthly](https://earthly.dev/get-earthly) to build all firmware in a portable and reproducible manor.   
