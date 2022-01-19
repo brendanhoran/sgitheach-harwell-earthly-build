@@ -29,7 +29,8 @@ dekatron:
     RUN mkdir dekatron
     COPY "Dekatron.$UPSTREAM_VERSION Final.zip" dekatron
 
-    # echo 0 is needed as zip is badly formed from Dropbox
+    # Run echo 0 via || on failed exit code from unzip to ensure RUN command suceeds
+    # Cause is malformed zip from Dropbox
     # REF:
     # https://unix.stackexchange.com/questions/634315/unzip-thinks-my-zip-file-is-a-zip-bomb
     RUN cd dekatron && unzip "Dekatron.$UPSTREAM_VERSION Final.zip" || echo 0
@@ -63,7 +64,8 @@ bootloader:
     RUN mkdir bootloader
     COPY "Bootloader $UPSTREAM_VERSION Final.zip" bootloader
 
-    # echo 0 is needed as zip is badly formed from Dropbox
+    # Run echo 0 via || on failed exit code from unzip to ensure RUN command suceeds
+    # Cause is malformed zip from Dropbox
     # REF:
     # https://unix.stackexchange.com/questions/634315/unzip-thinks-my-zip-file-is-a-zip-bomb
     RUN cd bootloader && unzip "Bootloader $UPSTREAM_VERSION Final.zip" || echo 0
@@ -96,7 +98,8 @@ sam:
     RUN mkdir sam
     COPY "Sgitheach.$UPSTREAM_VERSION Final.zip" sam
 
-    # echo 0 is needed as zip is badly formed from Dropbox
+    # Run echo 0 via || on failed exit code from unzip to ensure RUN command suceeds
+    # Cause is malformed zip from Dropbox
     # REF:
     # https://unix.stackexchange.com/questions/634315/unzip-thinks-my-zip-file-is-a-zip-bomb
     RUN cd sam && unzip "Sgitheach.$UPSTREAM_VERSION Final.zip" || echo 0
@@ -127,7 +130,7 @@ sam:
 bossa:
     ## Build the BOSSA CLI applictions for Linux
 
-    RUN git clone https://github.com/shumatech/BOSSA.git bossa
+    GIT CLONE https://github.com/shumatech/BOSSA.git bossa
     RUN cd bossa && make bossac
 
     SAVE ARTIFACT "bossa/bin/bossac" AS LOCAL artifacts/utils/
