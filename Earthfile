@@ -141,3 +141,23 @@ all-firmware:
     FROM +bootloader
     FROM +dekatron
     FROM +sam
+
+flash-sam:
+    ## Linux only
+    ## Flash the firmware from the sam build step to the SAM device using bossa cli
+    ## NOTE, you need to have run the sam and bossa build steps before you run this.
+
+    # No other way around this yet, as we can not pass '--device' docker style syntax into Earthly
+    # Thus this step executes on the local machine.
+    LOCALLY
+    # Define build arg for the serial port (Dont want this in global scope as it will cause layer rebuilds)
+    ARG SERIAL_PORT
+
+    IF [ ! -f artifacts/utils/bossac ]
+        RUN echo "ERROR!! Could not find bossac, please run +bossa stage first"
+    ELSE IF [ ! -f artifacts/sam/*.bin ]
+        RUN echo "ERROR!! Could not find SAM firmware bin, please run +sam stage first"
+    END
+
+    RUN artifacts/utils/bossac --port=$SERIAL_PORT \
+                               --usb-port=0 --erase --write --verify --boot --reset artifacts/sam/*.bin
