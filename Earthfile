@@ -1,4 +1,4 @@
-# This Earthfile aims to build the frimware for the Harwell Dekatron clock
+# This Earthfile aims to build the firmware for the Harwell Dekatron clock
 # http://www.sgitheach.org.uk/harwell.html
 # Project source is distrubted via Dropbox at:
 # https://www.dropbox.com/sh/vbxwpxwj4dzgiuu/AAAJOA2jXWSSztL8QWtX_jF5a/Firmware?dl=0&subfolder_nav_tracking=1
