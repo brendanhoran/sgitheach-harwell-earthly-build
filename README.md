@@ -47,9 +47,9 @@ earthly +all-firmware
 
 ##### To build a specific firmware component.   
 Components currently supported are:   
-- bootloader   
-- dekatron   
-- sam   
+- bootloader (File name in dropbox: Bootloader VERSION_NUMBER Final.zip)    
+- dekatron (File name in dropbox: Dekatron.VERSION_NUMBER Final.zip)    
+- sam (File name in dropbox: Sgitheach.VERSION_NUMBER Final.zip)    
 
 Example to build just the SAM firmware:   
 ``` 
